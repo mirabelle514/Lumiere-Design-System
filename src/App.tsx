@@ -1,6 +1,7 @@
 
 import React from 'react';
 import './App.css';
+import { TopNavigation } from './components/navigation/TopNavigation';
 import { HeroSection } from './components/sections/HeroSection';
 import { ColorPaletteSection } from './components/sections/ColorPaletteSection';
 import { TypographySection } from './components/sections/TypographySection';
@@ -13,10 +14,12 @@ import { ResponsiveSection } from './components/sections/ResponsiveSection';
 import { AnimationSection } from './components/sections/AnimationSection';
 import { AccessibilitySection } from './components/sections/AccessibilitySection';
 import { UsageGuidelines } from './components/sections/UsageGuidelines';
+import { Footer } from './components/sections/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="min-h-screen bg-[var(--lumiere-ivory)] font-body">
+      <TopNavigation />
       <HeroSection />
       <ColorPaletteSection />
       <TypographySection />
@@ -29,6 +32,7 @@ function App() {
       <AnimationSection />
       <AccessibilitySection />
       <UsageGuidelines />
+      <Footer />
     </div>
   );
 }
