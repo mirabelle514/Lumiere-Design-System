@@ -47,18 +47,16 @@ export const TokensSection: React.FC = () => {
     <section id="tokens" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b-2 border-[var(--lumiere-gold)] pb-4 mb-8">
-            <div>
-              <h2 className="font-heading text-3xl text-[var(--lumiere-navy)]">
-                Design Tokens
-              </h2>
-              <p className="text-sm text-[var(--lumiere-navy)]/70 mt-2 max-w-2xl">
-                These are the source values used to power colors, typography, and spacing across the Lumière system.
-                You can browse them below or download a copy.
-              </p>
-            </div>
+          <div className="border-b-2 border-[var(--lumiere-gold)] pb-4 mb-8 text-center">
+            <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-4">
+              Design Tokens
+            </h2>
+            <p className="text-sm text-[var(--lumiere-navy)]/70 max-w-2xl mx-auto">
+              These are the source values used to power colors, typography, and spacing across the Lumière system.
+              You can browse them below or download a copy.
+            </p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
               <button
                 type="button"
                 className="px-4 py-2 rounded-lg border border-[var(--lumiere-gold)] text-sm font-body text-[var(--lumiere-navy)] hover:bg-[var(--lumiere-grey)] transition-colors"

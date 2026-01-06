@@ -1,4 +1,4 @@
-# Lumière Design System for [The Wednesday Collectives](https://thewednesdaycollective.com/)
+# Design System for [The Wednesday Collectives](https://thewednesdaycollective.com/)
 
 ## Overview
 

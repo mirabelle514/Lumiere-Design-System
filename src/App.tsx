@@ -8,6 +8,7 @@ import { TypographySection } from './components/sections/TypographySection';
 import { SpacingSection } from './components/sections/SpacingSection';
 import { IconographySection } from './components/sections/IconographySection';
 import { ComponentShowcase } from './components/sections/ComponentShowcase';
+import { PatternsSection } from './components/sections/PatternsSection';
 import { MobileExample } from './components/sections/MobileExample';
 import { MobilePatterns } from './components/sections/MobilePatterns';
 import { ResponsiveSection } from './components/sections/ResponsiveSection';
@@ -28,6 +29,7 @@ function App() {
       <TokensSection />
       <IconographySection />
       <ComponentShowcase />
+      <PatternsSection />
       <MobileExample />
       <MobilePatterns />
       <ResponsiveSection />

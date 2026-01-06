@@ -66,11 +66,11 @@ export const ComponentShowcase: React.FC = () => {
       {/* Input Fields Section */}
       <section className="py-16">
         <div className="px-6 mx-auto max-w-6xl">
-          <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
-            <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
+          <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)] text-center">
+            <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-6 pb-4 border-b-2 border-[var(--lumiere-gold)]">
               Input Fields
             </h2>
-            <div className="max-w-md">
+            <div className="max-w-lg mx-auto text-left space-y-5 pt-2">
               <LumiereInput
                 label="Email Address"
                 type="email"
@@ -86,7 +86,7 @@ export const ComponentShowcase: React.FC = () => {
                 rows={4}
                 placeholder="Enter your message"
               />
-              <div className="flex gap-3 items-center">
+              <div className="flex gap-3 items-center justify-center pt-2">
                 <LumiereToggle
                   variant="switch"
                   pressed={toggleState}
@@ -130,16 +130,15 @@ export const ComponentShowcase: React.FC = () => {
       {/* Navigation Section */}
       <section className="py-16">
         <div className="px-6 mx-auto max-w-6xl">
-          <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
+          <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)] text-center">
             <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
               Navigation
             </h2>
-            <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-4">Tab Bar</h4>
             <LumiereTabBar
               tabs={tabItems}
               activeTab={activeTab}
               onTabChange={setActiveTab}
-              className="max-w-md"
+              className="max-w-md mx-auto"
             />
             <small className="block mt-4 text-gray-600">
               Navy background with white active indicators for better contrast

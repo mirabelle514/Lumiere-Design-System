@@ -13,8 +13,8 @@ interface IconGridProps {
 
 const IconGrid: React.FC<IconGridProps> = ({ title, icons }) => (
   <div className="mb-8">
-    <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-4">{title}</h4>
-    <div className="grid grid-cols-4 gap-4 md:grid-cols-6 lg:grid-cols-8">
+    <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-4 text-center">{title}</h4>
+    <div className="grid grid-cols-4 gap-4 md:grid-cols-6 lg:grid-cols-8 justify-items-center">
       {icons.map((item, index) => (
         <div key={index} className="flex flex-col items-center p-3 rounded-lg bg-[var(--lumiere-grey)] hover:bg-[var(--lumiere-ivory)] transition-colors">
           <div className="text-[var(--lumiere-navy)] mb-2">
@@ -65,7 +65,7 @@ export const IconographySection: React.FC = () => {
   return (
     <section id="iconography" className="py-16">
       <div className="px-6 mx-auto max-w-6xl">
-        <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
+        <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)] text-center">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
             Iconography
           </h2>
@@ -83,13 +83,15 @@ export const IconographySection: React.FC = () => {
           <IconGrid title="Media Icons" icons={mediaIcons} />
 
           <div className="mt-8 p-4 bg-[var(--lumiere-grey)] rounded-lg">
-            <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-2">Icon Guidelines</h4>
-            <ul className="text-sm text-[var(--lumiere-navy)] opacity-80 space-y-1">
-              <li>• Use 20px icons for standard UI elements</li>
-              <li>• Use 24px icons for primary actions and navigation</li>
-              <li>• Maintain 44px minimum touch target for mobile</li>
-              <li>• Use consistent stroke width (2px) across all icons</li>
-            </ul>
+            <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-2 text-center">Icon Guidelines</h4>
+            <div className="flex justify-center">
+              <ul className="text-sm text-[var(--lumiere-navy)] opacity-80 space-y-1 text-left">
+                <li>• Use 20px icons for standard UI elements</li>
+                <li>• Use 24px icons for primary actions and navigation</li>
+                <li>• Maintain 44px minimum touch target for mobile</li>
+                <li>• Use consistent stroke width (2px) across all icons</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

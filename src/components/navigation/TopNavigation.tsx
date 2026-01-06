@@ -1,18 +1,17 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import logoTransparent from '@/assets/lumiere-32x32-transparent.png';
 
 type ThemeMode = 'light' | 'navy';
 const THEME_STORAGE_KEY = 'lumiere-theme';
 
-type NavTabId = 'foundations' | 'components' | 'patterns' | 'docs';
+type NavTabId = 'core' | 'components' | 'patterns' | 'guidelines';
 const NAV_TAB_STORAGE_KEY = 'lumiere-nav-tab';
 
 export const TopNavigation: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<ThemeMode>('light');
-  const [activeTab, setActiveTab] = useState<NavTabId>('foundations');
+  const [activeTab, setActiveTab] = useState<NavTabId>('core');
 
   useEffect(() => {
     const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
@@ -27,8 +26,22 @@ export const TopNavigation: React.FC = () => {
 
   useEffect(() => {
     const stored = window.localStorage.getItem(NAV_TAB_STORAGE_KEY);
+    // Back-compat with older tab ids.
+    const normalized =
+      stored === 'foundations'
+        ? 'core'
+        : stored === 'templates' || stored === 'examples'
+          ? 'patterns'
+          : stored === 'docs' || stored === 'guidelines'
+            ? 'guidelines'
+            : stored;
+
     const nextTab: NavTabId =
-      stored === 'components' || stored === 'patterns' || stored === 'docs' ? stored : 'foundations';
+      normalized === 'components' ||
+      normalized === 'patterns' ||
+      normalized === 'guidelines'
+        ? normalized
+        : 'core';
     setActiveTab(nextTab);
   }, []);
 
@@ -37,7 +50,7 @@ export const TopNavigation: React.FC = () => {
   }, [activeTab]);
 
   const navTabs = useMemo(() => {
-    const foundations = [
+    const core = [
       { href: '#color-palette', label: 'Colors' },
       { href: '#typography', label: 'Typography' },
       { href: '#spacing', label: 'Spacing' },
@@ -48,20 +61,25 @@ export const TopNavigation: React.FC = () => {
     const components = [{ href: '#component-showcase', label: 'Components' }];
 
     const patterns = [
+      { href: '#patterns', label: 'Overview' },
+      { href: '#pattern-auth', label: 'Auth / Sign In' },
+      { href: '#pattern-settings', label: 'Settings' },
+      { href: '#pattern-search', label: 'Search + Filter List' },
       { href: '#mobile-example', label: 'Mobile Example' },
       { href: '#mobile-patterns', label: 'Mobile Patterns' },
       { href: '#responsive', label: 'Responsive' },
-      { href: '#animation', label: 'Animation' },
-      { href: '#accessibility', label: 'Accessibility' },
     ];
 
-    const docs = [{ href: '#usage-guidelines', label: 'Guidelines' }];
+    const guidelines = [
+      { href: '#accessibility', label: 'Accessibility' },
+      { href: '#usage-guidelines', label: 'Guidelines' },
+    ];
 
     return [
-      { id: 'foundations' as const, label: 'Foundations', links: foundations },
+      { id: 'core' as const, label: 'Core', links: core },
       { id: 'components' as const, label: 'Components', links: components },
       { id: 'patterns' as const, label: 'Patterns', links: patterns },
-      { id: 'docs' as const, label: 'Docs', links: docs },
+      { id: 'guidelines' as const, label: 'Guidelines', links: guidelines },
     ];
   }, []);
 
@@ -105,22 +123,6 @@ export const TopNavigation: React.FC = () => {
           className="flex items-center gap-3 text-left"
           aria-label="Scroll to top"
         >
-          <span
-            role="img"
-            aria-label="Lumiere logo"
-            className="h-8 w-8"
-            style={{
-              backgroundColor: brandColor,
-              WebkitMaskImage: `url(${logoTransparent})`,
-              WebkitMaskRepeat: 'no-repeat',
-              WebkitMaskSize: 'contain',
-              WebkitMaskPosition: 'center',
-              maskImage: `url(${logoTransparent})`,
-              maskRepeat: 'no-repeat',
-              maskSize: 'contain',
-              maskPosition: 'center',
-            }}
-          />
           <span className="font-heading text-xl font-bold" style={{ color: brandColor }}>
             Lumiere
           </span>
@@ -161,13 +163,15 @@ export const TopNavigation: React.FC = () => {
               </button>
             </div>
 
-            <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+            <div className="mt-2 flex items-center gap-3">
+              <ul className="flex gap-2 overflow-x-auto whitespace-nowrap pb-1">
               {activeLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => scrollToSection(link.href)}
                     className={cn(
-                      'text-[var(--nav-muted)] text-sm hover:text-[var(--nav-text)]',
+                      'px-3 py-1.5 rounded-full border border-[var(--lumiere-gold)]/30',
+                      'text-[var(--nav-muted)] text-sm hover:text-[var(--nav-text)] hover:border-[var(--lumiere-gold)]',
                       'transition-colors font-body'
                     )}
                   >
@@ -175,7 +179,8 @@ export const TopNavigation: React.FC = () => {
                   </button>
                 </li>
               ))}
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -202,7 +207,7 @@ export const TopNavigation: React.FC = () => {
             </div>
 
             <div
-              className="inline-flex w-full rounded-xl border border-[var(--lumiere-gold)]/50 p-1 bg-[var(--app-bg)]/60"
+              className="flex gap-2 overflow-x-auto rounded-xl border border-[var(--lumiere-gold)]/50 p-1 bg-[var(--app-bg)]/60"
               role="tablist"
               aria-label="Navigation categories"
             >
@@ -216,7 +221,7 @@ export const TopNavigation: React.FC = () => {
                     aria-selected={isActive}
                     onClick={() => setActiveTab(tab.id)}
                     className={cn(
-                      'flex-1 px-3 py-2 rounded-lg text-sm font-body transition-colors',
+                      'px-3 py-2 rounded-lg text-sm font-body transition-colors whitespace-nowrap',
                       isActive
                         ? theme === 'navy'
                           ? 'bg-[var(--lumiere-gold)] text-[var(--lumiere-navy)]'
@@ -230,14 +235,15 @@ export const TopNavigation: React.FC = () => {
               })}
             </div>
 
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {activeLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => scrollToSection(link.href)}
                     className={cn(
-                      'text-[var(--nav-muted)] text-sm hover:text-[var(--nav-text)]',
-                      'transition-colors block w-full text-left font-body'
+                      'w-full text-left px-3 py-2 rounded-lg border border-[var(--lumiere-gold)]/30',
+                      'text-[var(--nav-muted)] text-sm hover:text-[var(--nav-text)] hover:border-[var(--lumiere-gold)]',
+                      'transition-colors font-body'
                     )}
                   >
                     {link.label}

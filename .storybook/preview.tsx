@@ -1,4 +1,7 @@
 import type { Preview } from '@storybook/react';
+import React from 'react';
+import { Controls, Primary, Source, Stories, Title } from '@storybook/blocks';
+
 import '../src/index.css';
 import '../src/styles/globals.css';
 
@@ -14,57 +17,42 @@ const preview: Preview = {
     backgrounds: {
       default: 'lumiere-ivory',
       values: [
-        {
-          name: 'lumiere-ivory',
-          value: '#FAF8F3',
-        },
-        {
-          name: 'lumiere-navy',
-          value: '#22304A',
-        },
-        {
-          name: 'lumiere-grey',
-          value: '#E5E2DD',
-        },
-        {
-          name: 'white',
-          value: '#FFFFFF',
-        },
+        { name: 'lumiere-ivory', value: '#FAF8F3' },
+        { name: 'lumiere-navy', value: '#22304A' },
+        { name: 'lumiere-grey', value: '#E5E2DD' },
+        { name: 'white', value: '#FFFFFF' },
       ],
     },
     viewport: {
       viewports: {
-        mobile: {
-          name: 'Mobile',
-          styles: {
-            width: '375px',
-            height: '667px',
-          },
-        },
-        tablet: {
-          name: 'Tablet',
-          styles: {
-            width: '768px',
-            height: '1024px',
-          },
-        },
-        desktop: {
-          name: 'Desktop',
-          styles: {
-            width: '1200px',
-            height: '800px',
-          },
-        },
-        largeDesktop: {
-          name: 'Large Desktop',
-          styles: {
-            width: '1440px',
-            height: '900px',
-          },
-        },
+        mobile: { name: 'Mobile', styles: { width: '375px', height: '667px' } },
+        tablet: { name: 'Tablet', styles: { width: '768px', height: '1024px' } },
+        desktop: { name: 'Desktop', styles: { width: '1200px', height: '800px' } },
+        largeDesktop: { name: 'Large Desktop', styles: { width: '1440px', height: '900px' } },
       },
     },
     docs: {
+      source: {
+        // Ensure the "Code" panel is available by default in Docs.
+        // Individual stories can still override with `parameters.docs.source.code`.
+        type: 'dynamic',
+      },
+      page: () => (
+        <>
+          <Title />
+          <Primary />
+
+          <div style={{ marginTop: 24 }}>
+            <h2 style={{ margin: 0 }}>See the code</h2>
+            <div style={{ marginTop: 12 }}>
+              <Source />
+            </div>
+          </div>
+
+          <Controls />
+          <Stories />
+        </>
+      ),
       theme: {
         base: 'light',
         colorPrimary: '#22304A',
@@ -105,3 +93,4 @@ const preview: Preview = {
 };
 
 export default preview;
+
