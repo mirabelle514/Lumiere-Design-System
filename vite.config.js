@@ -15,7 +15,7 @@ export default defineConfig({
     },
     build: {
         lib: {
-            entry: resolve(__dirname, 'src/lumiere/index.ts'),
+            entry: resolve(__dirname, 'src/components/lumiere/index.ts'),
             name: 'LumiereDesignSystem',
             fileName: (format) => `lumiere.${format}.js`,
         },
