@@ -23,15 +23,15 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="text-center pt-32 pb-20 px-6 bg-gradient-to-br from-[var(--lumiere-ivory)] to-[var(--lumiere-grey)]">
+    <section className="text-center pt-32 pb-20 px-6 bg-gradient-to-br from-[var(--hero-from)] to-[var(--hero-to)]">
       <div className="max-w-4xl mx-auto px-6">
-        <h1 className="font-heading text-5xl md:text-6xl font-bold text-[var(--lumiere-navy)] mb-4">
+        <h1 className="font-heading text-5xl md:text-6xl font-bold text-[var(--hero-text)] mb-4">
           Lumière
         </h1>
-        <p className="font-accent text-2xl text-[var(--lumiere-navy)] mb-4 italic">
-          Design System for The Wednesday Projects
+        <p className="font-accent text-2xl text-[var(--hero-text)] mb-4 italic">
+          Design System for The Wednesday Collective
         </p>
-        <p className="text-lg text-[var(--lumiere-navy)] opacity-80 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-[var(--hero-muted)] mb-8 max-w-2xl mx-auto">
           Experience elegant French-inspired design with our comprehensive component library. 
           Built for modern web applications with attention to detail and sophisticated aesthetics.
         </p>

@@ -14,7 +14,7 @@ export const MobileExample: React.FC = () => {
   ];
 
   return (
-    <section className="py-16">
+    <section id="mobile-example" className="py-16">
       <div className="px-6 mx-auto max-w-6xl">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">

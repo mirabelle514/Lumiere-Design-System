@@ -82,7 +82,7 @@ const preview: Preview = {
         inputTextColor: '#22304A',
         inputBorderRadius: 8,
         brandTitle: 'Lumière Design System',
-        brandUrl: 'https://thewednesdayprojects.com',
+        brandUrl: 'https://thewednesdaycollective.com',
         fontBase: '"Open Sans", sans-serif',
         fontCode: 'monospace',
       },

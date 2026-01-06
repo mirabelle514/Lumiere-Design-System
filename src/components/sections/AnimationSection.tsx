@@ -11,7 +11,7 @@ export const AnimationSection: React.FC = () => {
   };
 
   return (
-    <section className="py-16">
+    <section id="animation" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">

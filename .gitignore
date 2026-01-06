@@ -13,6 +13,7 @@ node_modules/
 # Production
 /build
 /dist
+dist.zip
 
 # Misc
 .DS_Store

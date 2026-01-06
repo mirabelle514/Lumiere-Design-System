@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "clean": "rm -rf dist storybook-static coverage",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -14,12 +15,16 @@
     "test:coverage": "jest --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "tokens:build": "npm --prefix tokens run build",
     "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN",
     "chromatic:test": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes",
     "chromatic:publish": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --auto-accept-changes",
     "build-lib": "tsc && cp -r src/lumiere dist/",
     "prepare": "husky install"
   },
+  "workspaces": [
+    "tokens"
+  ],
   "keywords": [
     "design-system",
     "react",
@@ -29,9 +34,10 @@
     "french-design",
     "mobile-ui"
   ],
-  "author": "The Wednesday Projects",
+  "author": "The Wednesday Collective",
   "license": "MIT",
   "dependencies": {
+    "@lumiere/tokens": "workspace:*",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-aspect-ratio": "^1.1.8",
@@ -127,10 +133,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/thewednesdayprojects/lumiere-design-system"
+    "url": "https://github.com/mirabelle514/Lumiere-Design-System"
   },
   "bugs": {
-    "url": "https://github.com/thewednesdayprojects/lumiere-design-system/issues"
+    "url": "https://github.com/mirabelle514/Lumiere-Design-System/issues"
   },
-  "homepage": "https://github.com/thewednesdayprojects/lumiere-design-system#readme"
+  "homepage": "https://github.com/mirabelle514/Lumiere-Design-System#readme"
 }

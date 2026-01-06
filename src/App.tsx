@@ -13,17 +13,19 @@ import { MobilePatterns } from './components/sections/MobilePatterns';
 import { ResponsiveSection } from './components/sections/ResponsiveSection';
 import { AnimationSection } from './components/sections/AnimationSection';
 import { AccessibilitySection } from './components/sections/AccessibilitySection';
+import { TokensSection } from './components/sections/TokensSection';
 import { UsageGuidelines } from './components/sections/UsageGuidelines';
 import { Footer } from './components/sections/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--lumiere-ivory)] font-body">
+    <div className="min-h-screen bg-[var(--app-bg)] text-[var(--app-text)] font-body">
       <TopNavigation />
       <HeroSection />
       <ColorPaletteSection />
       <TypographySection />
       <SpacingSection />
+      <TokensSection />
       <IconographySection />
       <ComponentShowcase />
       <MobileExample />

@@ -2,10 +2,20 @@
   "name": "@lumiere/tokens",
   "version": "1.0.0",
   "description": "Design tokens for Lumière Design System",
+  "type": "module",
   "main": "dist/js/tokens.js",
+  "types": "dist/js/tokens.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/js/tokens.d.ts",
+      "default": "./dist/js/tokens.js"
+    },
+    "./css": "./dist/css/tokens.css",
+    "./json": "./dist/json/tokens.json"
+  },
   "scripts": {
-    "build": "node build.js",
-    "dev": "node build.js --watch"
+    "build": "node build.cjs",
+    "dev": "node build.cjs --watch"
   },
   "files": [
     "dist/"
