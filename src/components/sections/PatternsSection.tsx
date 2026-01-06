@@ -60,9 +60,16 @@ export const PatternsSection: React.FC = () => {
           <div className="my-12 border-t border-[var(--lumiere-gold)]/30" />
 
           <div id="pattern-search" className="scroll-mt-28 max-w-2xl mx-auto">
+            <div className="mb-6">
+              <h2 className="font-heading text-3xl text-foreground">Search and Filter</h2>
+              <p className="text-sm font-body text-foreground/70 mt-1">
+                Search and filter a list of items. This pattern is designed for mobile-first list screens.
+              </p>
+            </div>
+
             <SearchFilterList
-              title="Search and Filter"
-              showHeader
+              title="Search"
+              showHeader={false}
               items={demoItems}
               onSelectItem={(item) => setSelected(item)}
             />
