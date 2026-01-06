@@ -2,7 +2,6 @@ import React, { useMemo, useState } from 'react';
 import { AuthSignInCard } from '@/patterns/AuthSignInCard';
 import { SettingsScreen } from '@/patterns/SettingsScreen';
 import { SearchFilterList, type SearchListItem } from '@/patterns/SearchFilterList';
-import { LumiereCardHeader, LumiereCardTitle } from '@/components/lumiere/LumiereCard';
 import { LumiereModal } from '@/components/lumiere/LumiereModal';
 import { LumiereButton } from '@/components/lumiere/LumiereButton';
 
@@ -43,8 +42,8 @@ export const PatternsSection: React.FC = () => {
           </div>
 
           <div className="my-12 border-t border-[var(--lumiere-gold)]/30" />
-
-          <div id="pattern-settings" className="scroll-mt-28">
+          
+          <div id="pattern-settings" className="scroll-mt-28 max-w-2xl mx-auto">
             <SettingsScreen
               onSave={async () => {
                 // Demo: no-op
@@ -60,20 +59,10 @@ export const PatternsSection: React.FC = () => {
 
           <div className="my-12 border-t border-[var(--lumiere-gold)]/30" />
 
-          <div id="pattern-search" className="scroll-mt-28">
-
-            <div className="max-w-3xl mx-auto">
-              <LumiereCardHeader>
-                <LumiereCardTitle className="text-3xl">Search</LumiereCardTitle>
-                <p className="text-sm font-body text-foreground/70">
-                  Search and filter a list of items. This pattern is designed for mobile-first list screens.
-                </p>
-              </LumiereCardHeader>
-            </div>
-
+          <div id="pattern-search" className="scroll-mt-28 max-w-2xl mx-auto">
             <SearchFilterList
-              title="Search"
-              showHeader={false}
+              title="Search and Filter"
+              showHeader
               items={demoItems}
               onSelectItem={(item) => setSelected(item)}
             />

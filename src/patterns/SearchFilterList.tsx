@@ -82,7 +82,7 @@ export const SearchFilterList: React.FC<SearchFilterListProps> = ({
             </LumiereButton>
           </div>
 
-          <div className="text-sm font-body text-foreground/70">
+          <div className="text-sm font-body text-foreground/70 text-left">
             Showing <span className="font-heading text-foreground">{filtered.length}</span> of{' '}
             <span className="font-heading text-foreground">{items.length}</span>
           </div>
