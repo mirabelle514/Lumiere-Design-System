@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main rays -->
+  <path d="M32 6V22M32 42V58M6 32H22M42 32H58" stroke="#6b6b7e" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Diagonal rays -->
+  <path d="M12 12L21 21M43 43L52 52M52 12L43 21M21 43L12 52" stroke="#6b6b7e" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Center ring -->
+  <circle cx="32" cy="32" r="6" stroke="#6b6b7e" stroke-width="1.5"/>
+  <!-- Glow center -->
+  <circle cx="32" cy="32" r="2.5" fill="#e8c4c0"/>
+</svg>
