@@ -6,7 +6,6 @@ import { LumiereTextarea } from '../lumiere/LumiereTextarea';
 import { LumiereToggle } from '../lumiere/LumiereToggle';
 import { LumiereTabBar } from '../lumiere/LumiereTabBar';
 import { LumiereModal } from '../lumiere/LumiereModal';
-import { Home, User, Settings, Grid } from 'lucide-react';
 
 export const ComponentShowcase: React.FC = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -21,7 +20,7 @@ export const ComponentShowcase: React.FC = () => {
   ];
 
   return (
-    <div id="component-showcase" className="space-y-16">
+    <div data-section="component-showcase" className="space-y-16">
       {/* Buttons Section */}
       <section className="py-16">
         <div className="px-6 mx-auto max-w-6xl">

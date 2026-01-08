@@ -44,7 +44,7 @@ export const TokensSection: React.FC = () => {
   }, [activeGroup]);
 
   return (
-    <section id="tokens" className="py-16">
+    <section data-section="tokens" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <div className="border-b-2 border-[var(--lumiere-gold)] pb-4 mb-8 text-center">

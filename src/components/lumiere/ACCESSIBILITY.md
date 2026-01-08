@@ -90,7 +90,7 @@ The Lumiere Design System is built with **full ADA (Americans with Disabilities 
   title="Confirm Action"
   aria-describedby="modal-description"
 >
-  <p id="modal-description">Are you sure?</p>
+  <p>Are you sure?</p>
 </LumiereModal>
 ```
 

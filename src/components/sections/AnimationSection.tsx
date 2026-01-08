@@ -11,7 +11,7 @@ export const AnimationSection: React.FC = () => {
   };
 
   return (
-    <section id="animation" className="py-16">
+    <section data-section="animation" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
@@ -145,19 +145,19 @@ export const AnimationSection: React.FC = () => {
               <div>
                 <strong>Mobile Optimization:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Use transform and opacity for smooth animations</li>
-                  <li>• Avoid animating layout properties</li>
-                  <li>• Respect prefers-reduced-motion</li>
-                  <li>• Test on low-end devices</li>
+                  <li>Use transform and opacity for smooth animations</li>
+                  <li>Avoid animating layout properties</li>
+                  <li>Respect prefers-reduced-motion</li>
+                  <li>Test on low-end devices</li>
                 </ul>
               </div>
               <div>
                 <strong>Best Practices:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Use CSS transforms over position changes</li>
-                  <li>• Implement will-change property carefully</li>
-                  <li>• Debounce scroll-based animations</li>
-                  <li>• Provide animation controls</li>
+                  <li>Use CSS transforms over position changes</li>
+                  <li>Implement will-change property carefully</li>
+                  <li>Debounce scroll-based animations</li>
+                  <li>Provide animation controls</li>
                 </ul>
               </div>
             </div>

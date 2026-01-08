@@ -68,12 +68,6 @@ export const LumiereMobile = forwardRef<HTMLDivElement, LumiereMobileProps>(
     interactive = false,
     ...props 
   }, ref) => {
-    // Generate unique IDs for accessibility
-    const deviceId = React.useId();
-    const statusBarId = `${deviceId}-status`;
-    const headerId = `${deviceId}-header`;
-    const contentId = `${deviceId}-content`;
-    
     // Default accessibility labels
     const defaultAriaLabel = ariaLabel || `${variant} device frame${title ? ` showing ${title}` : ''}`;
     const defaultAriaDescription = ariaDescription || `A realistic ${variant} mobile device frame${title ? ` containing the ${title} interface` : ''}`;
@@ -86,7 +80,7 @@ export const LumiereMobile = forwardRef<HTMLDivElement, LumiereMobileProps>(
         ref={ref}
         role={interactive ? "application" : "img"}
         aria-label={defaultAriaLabel}
-        aria-describedby={ariaDescription ? undefined : `${statusBarId} ${headerId} ${contentId}`}
+        aria-description={defaultAriaDescription}
         tabIndex={interactive ? 0 : undefined}
         className={cn(
           // Base mobile frame styling with device-like appearance
@@ -127,7 +121,6 @@ export const LumiereMobile = forwardRef<HTMLDivElement, LumiereMobileProps>(
           {/* Status bar */}
           {showStatusBar && (
             <div 
-              id={statusBarId}
               role="status"
               aria-live="polite"
               aria-label={statusBarContent}
@@ -174,7 +167,6 @@ export const LumiereMobile = forwardRef<HTMLDivElement, LumiereMobileProps>(
           {/* Header with optional title */}
           {title && (
             <header 
-              id={headerId}
               className={cn(
                 'px-4 py-2 border-b',
                 
@@ -195,7 +187,6 @@ export const LumiereMobile = forwardRef<HTMLDivElement, LumiereMobileProps>(
           
           {/* Content area with proper padding and scrolling */}
           <main 
-            id={contentId}
             role="main"
             className={cn(
               'flex-1 overflow-auto p-4',

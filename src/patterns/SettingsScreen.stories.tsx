@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 import { SettingsScreen } from './SettingsScreen';
 
 const meta: Meta<typeof SettingsScreen> = {

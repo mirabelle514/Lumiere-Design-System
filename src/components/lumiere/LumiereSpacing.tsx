@@ -210,19 +210,19 @@ export const LumiereSpacing = forwardRef<HTMLDivElement, LumiereSpacingProps>(
             <div className={GUIDELINES_CARD_STYLES}>
               <h4 className={GUIDELINES_TITLE_STYLES}>Mobile Touch Targets</h4>
               <ul className={GUIDELINES_LIST_STYLES}>
-                <li>• Minimum 44px for primary actions</li>
-                <li>• 32px for secondary actions</li>
-                <li>• 8px spacing between touch elements</li>
-                <li>• 16px margins from screen edges</li>
+                <li>Minimum 44px for primary actions</li>
+                <li>32px for secondary actions</li>
+                <li>8px spacing between touch elements</li>
+                <li>16px margins from screen edges</li>
               </ul>
             </div>
             <div className={GUIDELINES_CARD_STYLES}>
               <h4 className={GUIDELINES_TITLE_STYLES}>Content Spacing</h4>
               <ul className={GUIDELINES_LIST_STYLES}>
-                <li>• 24px between major sections</li>
-                <li>• 16px between related elements</li>
-                <li>• 8px between form fields</li>
-                <li>• 4px for inline element spacing</li>
+                <li>24px between major sections</li>
+                <li>16px between related elements</li>
+                <li>8px between form fields</li>
+                <li>4px for inline element spacing</li>
               </ul>
             </div>
           </div>

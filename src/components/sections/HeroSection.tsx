@@ -3,7 +3,7 @@ import { LumiereButton } from '../lumiere/LumiereButton';
 
 export const HeroSection: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    const element = document.querySelector<HTMLElement>(`[data-section="${sectionId}"]`);
     if (element) {
       element.scrollIntoView({ 
         behavior: 'smooth',

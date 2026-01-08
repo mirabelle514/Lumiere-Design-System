@@ -1,11 +1,27 @@
 import type { Preview } from '@storybook/react';
-import React from 'react';
-import { Controls, Primary, Source, Stories, Title } from '@storybook/blocks';
 
 import '../src/index.css';
 import '../src/styles/globals.css';
 
+import { DocsScaffoldPage } from './DocsScaffoldPage';
+
 const preview: Preview = {
+  decorators: [
+    (Story, context) => {
+      const theme = context.globals.theme as string | undefined;
+      if (theme) {
+        document.documentElement.dataset.theme = theme;
+      } else {
+        delete document.documentElement.dataset.theme;
+      }
+
+      return (
+        <div className="min-h-screen bg-[var(--app-bg)] text-[var(--app-text)]">
+          <Story />
+        </div>
+      );
+    },
+  ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -37,22 +53,7 @@ const preview: Preview = {
         // Individual stories can still override with `parameters.docs.source.code`.
         type: 'dynamic',
       },
-      page: () => (
-        <>
-          <Title />
-          <Primary />
-
-          <div style={{ marginTop: 24 }}>
-            <h2 style={{ margin: 0 }}>See the code</h2>
-            <div style={{ marginTop: 12 }}>
-              <Source />
-            </div>
-          </div>
-
-          <Controls />
-          <Stories />
-        </>
-      ),
+      page: DocsScaffoldPage,
       theme: {
         base: 'light',
         colorPrimary: '#22304A',
@@ -77,6 +78,18 @@ const preview: Preview = {
     },
   },
   globalTypes: {
+    theme: {
+      name: 'Theme',
+      description: 'Preview theme',
+      defaultValue: 'light',
+      toolbar: {
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
+        ],
+      },
+    },
     locale: {
       name: 'Locale',
       description: 'Internationalization locale',

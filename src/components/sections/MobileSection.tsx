@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-
-
-
 import { Search, Filter, MoreVertical, ChevronRight, Star, Heart } from 'lucide-react';
 
-export const MobilePatterns: React.FC = () => {
+export const MobileSection: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <section id="mobile-patterns" className="py-16">
+    <section data-section="mobile-patterns" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
@@ -125,17 +122,17 @@ export const MobilePatterns: React.FC = () => {
               <div>
                 <strong>Touch Interactions:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Use swipe gestures for navigation</li>
-                  <li>• Implement pull-to-refresh</li>
-                  <li>• Add haptic feedback for actions</li>
+                  <li>Use swipe gestures for navigation</li>
+                  <li>Implement pull-to-refresh</li>
+                  <li>Add haptic feedback for actions</li>
                 </ul>
               </div>
               <div>
                 <strong>Content Organization:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Prioritize content hierarchy</li>
-                  <li>• Use progressive disclosure</li>
-                  <li>• Implement infinite scroll for lists</li>
+                  <li>Prioritize content hierarchy</li>
+                  <li>Use progressive disclosure</li>
+                  <li>Implement infinite scroll for lists</li>
                 </ul>
               </div>
             </div>
@@ -145,3 +142,5 @@ export const MobilePatterns: React.FC = () => {
     </section>
   );
 };
+
+// (intentionally no `id` attributes; navigation uses `data-section` selectors)

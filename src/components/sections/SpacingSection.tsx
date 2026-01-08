@@ -34,7 +34,7 @@ export const SpacingSection: React.FC = () => {
   ];
 
   return (
-    <section id="spacing" className="py-16">
+    <section data-section="spacing" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
@@ -58,19 +58,19 @@ export const SpacingSection: React.FC = () => {
             <div className="p-4 bg-[var(--lumiere-grey)] rounded-lg">
               <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-2">Mobile Touch Targets</h4>
               <ul className="text-sm text-[var(--lumiere-navy)] opacity-80 space-y-1">
-                <li>• Minimum 44px for primary actions</li>
-                <li>• 32px for secondary actions</li>
-                <li>• 8px spacing between touch elements</li>
-                <li>• 16px margins from screen edges</li>
+                <li>Minimum 44px for primary actions</li>
+                <li>32px for secondary actions</li>
+                <li>8px spacing between touch elements</li>
+                <li>16px margins from screen edges</li>
               </ul>
             </div>
             <div className="p-4 bg-[var(--lumiere-grey)] rounded-lg">
               <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-2">Content Spacing</h4>
               <ul className="text-sm text-[var(--lumiere-navy)] opacity-80 space-y-1">
-                <li>• 24px between major sections</li>
-                <li>• 16px between related elements</li>
-                <li>• 8px between form fields</li>
-                <li>• 4px for inline element spacing</li>
+                <li>24px between major sections</li>
+                <li>16px between related elements</li>
+                <li>8px between form fields</li>
+                <li>4px for inline element spacing</li>
               </ul>
             </div>
           </div>

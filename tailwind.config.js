@@ -1,4 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+let tailwindAnimatePlugin;
+try {
+  // Optional dependency in some environments (e.g. when this config is reused from a subpackage).
+  tailwindAnimatePlugin = require('tailwindcss-animate');
+} catch (e) {
+  tailwindAnimatePlugin = null;
+}
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -83,5 +91,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindAnimatePlugin].filter(Boolean),
 };

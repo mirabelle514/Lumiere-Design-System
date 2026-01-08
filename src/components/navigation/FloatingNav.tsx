@@ -20,7 +20,7 @@ export const FloatingNav: React.FC = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    const element = document.querySelector<HTMLElement>(`[data-section="${sectionId}"]`);
     if (element) {
       element.scrollIntoView({
         behavior: 'smooth',
@@ -42,8 +42,9 @@ export const FloatingNav: React.FC = () => {
     { id: 'iconography', icon: <Feather size={16} />, label: 'Icons' },
     { id: 'spacing', icon: <Ruler size={16} />, label: 'Spacing' },
     { id: 'component-showcase', icon: <Layers size={16} />, label: 'Components' },
-    { id: 'mobile-patterns', icon: <Grid size={16} />, label: 'Patterns' },
-    { id: 'mobile-example', icon: <Smartphone size={16} />, label: 'Mobile' },
+    { id: 'patterns', icon: <Grid size={16} />, label: 'Patterns' },
+    { id: 'mobile-patterns', icon: <Smartphone size={16} />, label: 'Mobile Patterns' },
+    { id: 'mobile-example', icon: <Smartphone size={16} />, label: 'Mobile Example' },
     { id: 'responsive', icon: <Monitor size={16} />, label: 'Responsive' },
     { id: 'animation', icon: <Zap size={16} />, label: 'Animation' },
     { id: 'accessibility', icon: <Eye size={16} />, label: 'A11y' },
@@ -56,6 +57,12 @@ export const FloatingNav: React.FC = () => {
       icon: <Github size={16} />,
       label: 'GitHub',
       url: 'https://github.com/mirabelle514/Lumiere-Design-System'
+    },
+    {
+      id: 'storybook',
+      icon: <BookOpen size={16} />,
+      label: 'Storybook',
+      url: 'https://687bba4d795507daa442f549-cgildnerdh.chromatic.com/'
     },
     {
       id: 'figma',

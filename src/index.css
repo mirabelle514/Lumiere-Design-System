@@ -43,6 +43,7 @@
   --hero-muted: rgba(34, 48, 74, 0.8);
 }
 
+html[data-theme='dark'],
 html[data-theme='navy'] {
   --app-bg: var(--lumiere-navy);
   --app-text: var(--lumiere-ivory);

@@ -20,7 +20,7 @@ export const PatternsSection: React.FC = () => {
   );
 
   return (
-    <section id="patterns" className="py-16">
+    <section data-section="patterns" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-2">
@@ -30,7 +30,7 @@ export const PatternsSection: React.FC = () => {
             Reusable compositions built from Lumière components. These are copy-ready building blocks for real screens.
           </p>
 
-          <div id="pattern-auth" className="scroll-mt-28">
+          <div data-section="pattern-auth" className="scroll-mt-28">
             <AuthSignInCard
               onSubmit={async () => {
                 // Demo: no-op
@@ -43,7 +43,7 @@ export const PatternsSection: React.FC = () => {
 
           <div className="my-12 border-t border-[var(--lumiere-gold)]/30" />
           
-          <div id="pattern-settings" className="scroll-mt-28 max-w-2xl mx-auto">
+          <div data-section="pattern-settings" className="scroll-mt-28 max-w-2xl mx-auto">
             <SettingsScreen
               onSave={async () => {
                 // Demo: no-op
@@ -59,7 +59,7 @@ export const PatternsSection: React.FC = () => {
 
           <div className="my-12 border-t border-[var(--lumiere-gold)]/30" />
 
-          <div id="pattern-search" className="scroll-mt-28 max-w-2xl mx-auto">
+          <div data-section="pattern-search" className="scroll-mt-28 max-w-2xl mx-auto">
             <div className="mb-6">
               <h2 className="font-heading text-3xl text-foreground">Search and Filter</h2>
               <p className="text-sm font-body text-foreground/70 mt-1">

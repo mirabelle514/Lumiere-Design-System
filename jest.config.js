@@ -1,18 +1,12 @@
-const nextJest = require('next/jest');
-
-const createJestConfig = nextJest({
-  dir: './',
-});
-
-const customJestConfig = {
+/** @type {import('jest').Config} */
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  moduleNameMapping: {
-    '^@/components/(.*)$': '<rootDir>/src/components/$1',
-    '^@/lumiere/(.*)$': '<rootDir>/src/lumiere/$1',
-    '^@/utils/(.*)$': '<rootDir>/src/utils/$1',
-    '^@/types/(.*)$': '<rootDir>/src/types/$1',
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '\\.(css|less|sass|scss)$': '<rootDir>/jest.styleMock.js',
+    '\\.(gif|ttf|eot|svg|png|jpg|jpeg|webp)$': '<rootDir>/jest.fileMock.js',
   },
-  testEnvironment: 'jest-environment-jsdom',
+  testPathIgnorePatterns: ['/node_modules/', '/dist/', '/tokens/'],
 };
-
-module.exports = createJestConfig(customJestConfig);

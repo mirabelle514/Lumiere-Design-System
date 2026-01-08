@@ -10,7 +10,7 @@ import { IconographySection } from './components/sections/IconographySection';
 import { ComponentShowcase } from './components/sections/ComponentShowcase';
 import { PatternsSection } from './components/sections/PatternsSection';
 import { MobileExample } from './components/sections/MobileExample';
-import { MobilePatterns } from './components/sections/MobilePatterns';
+import { MobileSection } from './components/sections/MobileSection';
 import { ResponsiveSection } from './components/sections/ResponsiveSection';
 import { AnimationSection } from './components/sections/AnimationSection';
 import { AccessibilitySection } from './components/sections/AccessibilitySection';
@@ -31,7 +31,7 @@ function App() {
       <ComponentShowcase />
       <PatternsSection />
       <MobileExample />
-      <MobilePatterns />
+      <MobileSection />
       <ResponsiveSection />
       <AnimationSection />
       <AccessibilitySection />

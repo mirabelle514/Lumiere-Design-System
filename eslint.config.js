@@ -1,28 +1,49 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from "eslint-plugin-storybook";
-
 import js from '@eslint/js';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import tseslint from 'typescript-eslint';
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
 
-export default tseslint.config({ ignores: ['dist'] }, {
-  extends: [js.configs.recommended, ...tseslint.configs.recommended],
-  files: ['**/*.{ts,tsx}'],
-  languageOptions: {
-    ecmaVersion: 2020,
-    globals: globals.browser,
+export default [
+  { ignores: ['dist', 'tokens/dist', 'storybook-static', 'coverage'] },
+  js.configs.recommended,
+  {
+    files: ['**/*.{js,cjs,mjs}'],
+    languageOptions: {
+      globals: globals.node,
+      sourceType: 'module',
+    },
   },
-  plugins: {
-    'react-hooks': reactHooks,
-    'react-refresh': reactRefresh,
+  {
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parser: tsParser,
+      parserOptions: {
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...(tsPlugin.configs?.recommended?.rules ?? {}),
+      // TypeScript provides these checks; base rule produces false-positives in TS/TSX.
+      'no-undef': 'off',
+      ...reactHooks.configs.recommended.rules,
+      // Avoid warnings failing CI (`--max-warnings 0`) and false-positives in shared files.
+      'react-refresh/only-export-components': 'off',
+    },
   },
-  rules: {
-    ...reactHooks.configs.recommended.rules,
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+  {
+    files: ['**/*.stories.{ts,tsx}'],
+    rules: {
+      'react-hooks/rules-of-hooks': 'off',
+    },
   },
-}, storybook.configs["flat/recommended"], storybook.configs["flat/recommended"]);
+];

@@ -1,12 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { BookOpen, Github, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-type ThemeMode = 'light' | 'navy';
+type ThemeMode = 'light' | 'dark';
 const THEME_STORAGE_KEY = 'lumiere-theme';
 
 type NavTabId = 'core' | 'components' | 'patterns' | 'guidelines';
 const NAV_TAB_STORAGE_KEY = 'lumiere-nav-tab';
+
+const GITHUB_URL = 'https://github.com/mirabelle514/Lumiere-Design-System';
+const STORYBOOK_URL = 'https://687bba4d795507daa442f549-cgildnerdh.chromatic.com/';
 
 export const TopNavigation: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,7 +18,8 @@ export const TopNavigation: React.FC = () => {
 
   useEffect(() => {
     const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
-    const nextTheme: ThemeMode = stored === 'navy' ? 'navy' : 'light';
+    // Back-compat: older builds stored `navy` for the dark theme.
+    const nextTheme: ThemeMode = stored === 'dark' || stored === 'navy' ? 'dark' : 'light';
     setTheme(nextTheme);
   }, []);
 
@@ -51,28 +55,28 @@ export const TopNavigation: React.FC = () => {
 
   const navTabs = useMemo(() => {
     const core = [
-      { href: '#color-palette', label: 'Colors' },
-      { href: '#typography', label: 'Typography' },
-      { href: '#spacing', label: 'Spacing' },
-      { href: '#tokens', label: 'Tokens' },
-      { href: '#iconography', label: 'Iconography' },
+      { section: 'color-palette', label: 'Colors' },
+      { section: 'typography', label: 'Typography' },
+      { section: 'spacing', label: 'Spacing' },
+      { section: 'tokens', label: 'Tokens' },
+      { section: 'iconography', label: 'Iconography' },
     ];
 
-    const components = [{ href: '#component-showcase', label: 'Components' }];
+    const components = [{ section: 'component-showcase', label: 'Components' }];
 
     const patterns = [
-      { href: '#patterns', label: 'Overview' },
-      { href: '#pattern-auth', label: 'Auth / Sign In' },
-      { href: '#pattern-settings', label: 'Settings' },
-      { href: '#pattern-search', label: 'Search + Filter List' },
-      { href: '#mobile-example', label: 'Mobile Example' },
-      { href: '#mobile-patterns', label: 'Mobile Patterns' },
-      { href: '#responsive', label: 'Responsive' },
+      { section: 'patterns', label: 'Overview' },
+      { section: 'pattern-auth', label: 'Auth / Sign In' },
+      { section: 'pattern-settings', label: 'Settings' },
+      { section: 'pattern-search', label: 'Search + Filter List' },
+      { section: 'mobile-example', label: 'Mobile Example' },
+      { section: 'mobile-patterns', label: 'Mobile Patterns' },
+      { section: 'responsive', label: 'Responsive' },
     ];
 
     const guidelines = [
-      { href: '#accessibility', label: 'Accessibility' },
-      { href: '#usage-guidelines', label: 'Guidelines' },
+      { section: 'accessibility', label: 'Accessibility' },
+      { section: 'usage-guidelines', label: 'Guidelines' },
     ];
 
     return [
@@ -88,9 +92,8 @@ export const TopNavigation: React.FC = () => {
     return found?.links ?? navTabs[0].links;
   }, [activeTab, navTabs]);
 
-  const scrollToSection = (href: string) => {
-    const sectionId = href.replace('#', '');
-    const element = document.getElementById(sectionId);
+  const scrollToSection = (section: string) => {
+    const element = document.querySelector<HTMLElement>(`[data-section="${section}"]`);
     if (element) {
       element.scrollIntoView({
         behavior: 'smooth',
@@ -100,12 +103,12 @@ export const TopNavigation: React.FC = () => {
     setMobileMenuOpen(false);
   };
 
-  const brandColor = theme === 'navy' ? 'var(--lumiere-gold)' : 'var(--lumiere-burgundy)';
+  const brandColor = theme === 'dark' ? 'var(--lumiere-gold)' : 'var(--lumiere-burgundy)';
   const tabButtonClassName = (isActive: boolean) =>
     cn(
       'px-3 py-1.5 rounded-lg text-sm font-body transition-colors whitespace-nowrap',
       isActive
-        ? theme === 'navy'
+        ? theme === 'dark'
           ? 'bg-[var(--lumiere-gold)] text-[var(--lumiere-navy)]'
           : 'bg-[var(--lumiere-navy)] text-white'
         : 'text-[var(--nav-text)] hover:bg-[var(--lumiere-grey)]/20'
@@ -153,22 +156,44 @@ export const TopNavigation: React.FC = () => {
                 })}
               </div>
 
-              <button
-                type="button"
-                onClick={() => setTheme((t) => (t === 'navy' ? 'light' : 'navy'))}
-                className="px-3 py-1.5 rounded-lg border border-[var(--lumiere-gold)] text-sm font-body text-[var(--nav-text)] hover:bg-[var(--lumiere-grey)]/20 transition-colors whitespace-nowrap"
-                aria-label={theme === 'navy' ? 'Switch to light mode' : 'Switch to navy mode'}
-              >
-                {theme === 'navy' ? 'Light mode' : 'Navy mode'}
-              </button>
+              <div className="flex items-center gap-2">
+                <a
+                  href={STORYBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--lumiere-gold)] text-sm font-body text-[var(--nav-text)] hover:bg-[var(--lumiere-grey)]/20 transition-colors whitespace-nowrap"
+                  aria-label="Open Storybook in a new tab"
+                >
+                  <BookOpen className="h-4 w-4" />
+                  Storybook
+                </a>
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--lumiere-gold)] text-sm font-body text-[var(--nav-text)] hover:bg-[var(--lumiere-grey)]/20 transition-colors whitespace-nowrap"
+                  aria-label="Open GitHub repository in a new tab"
+                >
+                  <Github className="h-4 w-4" />
+                  GitHub
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
+                  className="px-3 py-1.5 rounded-lg border border-[var(--lumiere-gold)] text-sm font-body text-[var(--nav-text)] hover:bg-[var(--lumiere-grey)]/20 transition-colors whitespace-nowrap"
+                  aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                >
+                  {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                </button>
+              </div>
             </div>
 
             <div className="mt-2 flex items-center gap-3">
               <ul className="flex gap-2 overflow-x-auto whitespace-nowrap pb-1">
               {activeLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.section}>
                   <button
-                    onClick={() => scrollToSection(link.href)}
+                    onClick={() => scrollToSection(link.section)}
                     className={cn(
                       'px-3 py-1.5 rounded-full border border-[var(--lumiere-gold)]/30',
                       'text-[var(--nav-muted)] text-sm hover:text-[var(--nav-text)] hover:border-[var(--lumiere-gold)]',
@@ -197,12 +222,32 @@ export const TopNavigation: React.FC = () => {
         <div className="md:hidden bg-[var(--app-bg)] border-t border-[var(--lumiere-gold)]/30">
           <div className="px-6 py-4 space-y-4">
             <div className="flex items-center gap-3">
+              <a
+                href={STORYBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-2 rounded-lg border border-[var(--lumiere-gold)] text-sm font-body text-[var(--nav-text)] hover:bg-[var(--lumiere-grey)]/20 transition-colors inline-flex items-center gap-2"
+                aria-label="Open Storybook in a new tab"
+              >
+                <BookOpen className="h-4 w-4" />
+                Storybook
+              </a>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-2 rounded-lg border border-[var(--lumiere-gold)] text-sm font-body text-[var(--nav-text)] hover:bg-[var(--lumiere-grey)]/20 transition-colors inline-flex items-center gap-2"
+                aria-label="Open GitHub repository in a new tab"
+              >
+                <Github className="h-4 w-4" />
+                GitHub
+              </a>
               <button
                 type="button"
-                onClick={() => setTheme((t) => (t === 'navy' ? 'light' : 'navy'))}
+                onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
                 className="flex-1 px-3 py-2 rounded-lg border border-[var(--lumiere-gold)] text-sm font-body text-[var(--nav-text)] hover:bg-[var(--lumiere-grey)]/20 transition-colors"
               >
-                {theme === 'navy' ? 'Light mode' : 'Navy mode'}
+                {theme === 'dark' ? 'Light mode' : 'Dark mode'}
               </button>
             </div>
 
@@ -223,7 +268,7 @@ export const TopNavigation: React.FC = () => {
                     className={cn(
                       'px-3 py-2 rounded-lg text-sm font-body transition-colors whitespace-nowrap',
                       isActive
-                        ? theme === 'navy'
+                        ? theme === 'dark'
                           ? 'bg-[var(--lumiere-gold)] text-[var(--lumiere-navy)]'
                           : 'bg-[var(--lumiere-navy)] text-white'
                         : 'text-[var(--nav-text)] hover:bg-[var(--lumiere-grey)]/20'
@@ -237,9 +282,9 @@ export const TopNavigation: React.FC = () => {
 
             <ul className="space-y-3">
               {activeLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.section}>
                   <button
-                    onClick={() => scrollToSection(link.href)}
+                    onClick={() => scrollToSection(link.section)}
                     className={cn(
                       'w-full text-left px-3 py-2 rounded-lg border border-[var(--lumiere-gold)]/30',
                       'text-[var(--nav-muted)] text-sm hover:text-[var(--nav-text)] hover:border-[var(--lumiere-gold)]',

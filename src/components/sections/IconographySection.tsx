@@ -63,7 +63,7 @@ export const IconographySection: React.FC = () => {
   ];
 
   return (
-    <section id="iconography" className="py-16">
+    <section data-section="iconography" className="py-16">
       <div className="px-6 mx-auto max-w-6xl">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)] text-center">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
@@ -86,10 +86,10 @@ export const IconographySection: React.FC = () => {
             <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-2 text-center">Icon Guidelines</h4>
             <div className="flex justify-center">
               <ul className="text-sm text-[var(--lumiere-navy)] opacity-80 space-y-1 text-left">
-                <li>• Use 20px icons for standard UI elements</li>
-                <li>• Use 24px icons for primary actions and navigation</li>
-                <li>• Maintain 44px minimum touch target for mobile</li>
-                <li>• Use consistent stroke width (2px) across all icons</li>
+                <li>Use 20px icons for standard UI elements</li>
+                <li>Use 24px icons for primary actions and navigation</li>
+                <li>Maintain 44px minimum touch target for mobile</li>
+                <li>Use consistent stroke width (2px) across all icons</li>
               </ul>
             </div>
           </div>

@@ -6,9 +6,6 @@ import { Play, Pause } from 'lucide-react';
 // Define animation types
 type AnimationType = 'micro-interaction' | 'loading' | 'playground' | 'guidelines';
 
-// Define animation states
-type AnimationState = 'idle' | 'playing' | 'paused';
-
 // Base props interface
 interface BaseAnimationProps {
   /** The type of animation to display */
@@ -296,19 +293,19 @@ export const LumiereAnimation = forwardRef<HTMLDivElement, LumiereAnimationProps
               <div>
                 <strong>Mobile Optimization:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Use transform and opacity for smooth animations</li>
-                  <li>• Avoid animating layout properties</li>
-                  <li>• Respect prefers-reduced-motion</li>
-                  <li>• Test on low-end devices</li>
+                  <li>Use transform and opacity for smooth animations</li>
+                  <li>Avoid animating layout properties</li>
+                  <li>Respect prefers-reduced-motion</li>
+                  <li>Test on low-end devices</li>
                 </ul>
               </div>
               <div>
                 <strong>Best Practices:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Use CSS transforms over position changes</li>
-                  <li>• Implement will-change property carefully</li>
-                  <li>• Debounce scroll-based animations</li>
-                  <li>• Provide animation controls</li>
+                  <li>Use CSS transforms over position changes</li>
+                  <li>Implement will-change property carefully</li>
+                  <li>Debounce scroll-based animations</li>
+                  <li>Provide animation controls</li>
                 </ul>
               </div>
             </div>

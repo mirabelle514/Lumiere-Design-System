@@ -1,6 +1,5 @@
 import React, { forwardRef, useState } from 'react';
 import { cn } from './utils.js';
-import { LumiereInput } from './LumiereInput';
 import { Search, Filter, MoreVertical, ChevronRight, Star, Heart } from 'lucide-react';
 
 // Define mobile pattern types
@@ -352,17 +351,17 @@ export const LumiereMobilePatterns = forwardRef<HTMLDivElement, LumiereMobilePat
               <div>
                 <strong>Touch Interactions:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Use swipe gestures for navigation</li>
-                  <li>• Implement pull-to-refresh</li>
-                  <li>• Add haptic feedback for actions</li>
+                  <li>Use swipe gestures for navigation</li>
+                  <li>Implement pull-to-refresh</li>
+                  <li>Add haptic feedback for actions</li>
                 </ul>
               </div>
               <div>
                 <strong>Content Organization:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Prioritize content hierarchy</li>
-                  <li>• Use progressive disclosure</li>
-                  <li>• Implement infinite scroll for lists</li>
+                  <li>Prioritize content hierarchy</li>
+                  <li>Use progressive disclosure</li>
+                  <li>Implement infinite scroll for lists</li>
                 </ul>
               </div>
             </div>

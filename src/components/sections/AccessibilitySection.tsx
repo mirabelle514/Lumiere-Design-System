@@ -1,10 +1,9 @@
 import React from 'react';
-
 import { Eye, Volume2 } from 'lucide-react';
 
 export const AccessibilitySection: React.FC = () => {
   return (
-    <section id="accessibility" className="py-16">
+    <section data-section="accessibility" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
@@ -64,28 +63,28 @@ export const AccessibilitySection: React.FC = () => {
             <div className="p-4 bg-[var(--lumiere-grey)] rounded-lg">
               <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-2">Screen Readers</h4>
               <ul className="text-sm text-[var(--lumiere-navy)] opacity-80 space-y-1">
-                <li>• Semantic HTML structure</li>
-                <li>• ARIA labels and roles</li>
-                <li>• Descriptive alt text</li>
-                <li>• Focus management</li>
+                <li>Semantic HTML structure</li>
+                <li>ARIA labels and roles</li>
+                <li>Descriptive alt text</li>
+                <li>Focus management</li>
               </ul>
             </div>
             <div className="p-4 bg-[var(--lumiere-grey)] rounded-lg">
               <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-2">Motor Impairments</h4>
               <ul className="text-sm text-[var(--lumiere-navy)] opacity-80 space-y-1">
-                <li>• Large touch targets</li>
-                <li>• Adequate spacing</li>
-                <li>• Voice control support</li>
-                <li>• Switch navigation</li>
+                <li>Large touch targets</li>
+                <li>Adequate spacing</li>
+                <li>Voice control support</li>
+                <li>Switch navigation</li>
               </ul>
             </div>
             <div className="p-4 bg-[var(--lumiere-grey)] rounded-lg">
               <h4 className="font-heading text-lg text-[var(--lumiere-navy)] mb-2">Visual Impairments</h4>
               <ul className="text-sm text-[var(--lumiere-navy)] opacity-80 space-y-1">
-                <li>• High contrast ratios</li>
-                <li>• Scalable text</li>
-                <li>• Color-blind friendly</li>
-                <li>• Focus indicators</li>
+                <li>High contrast ratios</li>
+                <li>Scalable text</li>
+                <li>Color-blind friendly</li>
+                <li>Focus indicators</li>
               </ul>
             </div>
           </div>
@@ -97,17 +96,17 @@ export const AccessibilitySection: React.FC = () => {
               <div>
                 <strong>Automated Testing:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• axe-core for React</li>
-                  <li>• Lighthouse accessibility audit</li>
-                  <li>• WAVE browser extension</li>
+                  <li>axe-core for React</li>
+                  <li>Lighthouse accessibility audit</li>
+                  <li>WAVE browser extension</li>
                 </ul>
               </div>
               <div>
                 <strong>Manual Testing:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Keyboard navigation</li>
-                  <li>• Screen reader testing</li>
-                  <li>• Color contrast validation</li>
+                  <li>Keyboard navigation</li>
+                  <li>Screen reader testing</li>
+                  <li>Color contrast validation</li>
                 </ul>
               </div>
             </div>

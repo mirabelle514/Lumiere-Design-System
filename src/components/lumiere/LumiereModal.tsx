@@ -45,9 +45,8 @@ export interface LumiereModalProps extends React.HTMLAttributes<HTMLDivElement> 
  *   onClose={() => setIsModalOpen(false)}
  *   title="Confirm Action"
  *   size="md"
- *   aria-describedby="modal-description"
  * >
- *   <p id="modal-description">Are you sure you want to proceed?</p>
+ *   <p>Are you sure you want to proceed?</p>
  *   <div className="flex gap-2">
  *     <button onClick={() => setIsModalOpen(false)}>Cancel</button>
  *     <button onClick={handleConfirm}>Confirm</button>
@@ -102,7 +101,7 @@ export const LumiereModal = forwardRef<HTMLDivElement, LumiereModalProps>(
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           role="dialog"
           aria-modal="true"
-          aria-labelledby={title ? 'modal-title' : undefined}
+          aria-label={title ?? 'Dialog'}
           aria-describedby={ariaDescribedby}
         >
           <div
@@ -122,7 +121,7 @@ export const LumiereModal = forwardRef<HTMLDivElement, LumiereModalProps>(
             {/* Modal header with optional title */}
             {title && (
               <div className="px-6 py-4 border-b border-border">
-                <h2 id="modal-title" className="text-lg font-heading text-foreground">
+                <h2 className="text-lg font-heading text-foreground">
                   {title}
                 </h2>
               </div>

@@ -227,10 +227,10 @@ export const LumiereIconography = forwardRef<HTMLDivElement, LumiereIconographyP
           <div className={GUIDELINES_STYLES}>
             <h4 className={GUIDELINES_TITLE_STYLES}>Icon Guidelines</h4>
             <ul className={GUIDELINES_LIST_STYLES}>
-              <li>• Use 20px icons for standard UI elements</li>
-              <li>• Use 24px icons for primary actions and navigation</li>
-              <li>• Maintain 44px minimum touch target for mobile</li>
-              <li>• Use consistent stroke width (2px) across all icons</li>
+              <li>Use 20px icons for standard UI elements</li>
+              <li>Use 24px icons for primary actions and navigation</li>
+              <li>Maintain 44px minimum touch target for mobile</li>
+              <li>Use consistent stroke width (2px) across all icons</li>
             </ul>
           </div>
         )}

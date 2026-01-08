@@ -71,6 +71,8 @@ export const LumiereColorSwatch = forwardRef<HTMLDivElement, LumiereColorSwatchP
         {/* Information Section - Hidden for circular swatches */}
         {!(noBorder && swatchStyle?.borderRadius === '50%') && (
           <div className="p-3 bg-card">
+            <div className="font-heading text-sm text-foreground">{name}</div>
+            <div className="text-xs text-muted-foreground font-body">{hex}</div>
             {note && (
               <small className="text-muted-foreground font-body">{note}</small>
             )}

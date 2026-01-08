@@ -3,7 +3,7 @@ import { Smartphone, Tablet, Monitor } from 'lucide-react';
 
 export const ResponsiveSection: React.FC = () => {
   return (
-    <section id="responsive" className="py-16">
+    <section data-section="responsive" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white p-8 rounded-2xl shadow-[var(--shadow-card)] border border-[var(--lumiere-gold)]">
           <h2 className="font-heading text-3xl text-[var(--lumiere-navy)] mb-8 pb-4 border-b-2 border-[var(--lumiere-gold)]">
@@ -32,11 +32,11 @@ export const ResponsiveSection: React.FC = () => {
               </div>
               <div className="bg-[var(--lumiere-grey)] p-4 rounded-lg text-left">
                 <ul className="text-sm space-y-1">
-                  <li>• Single column layout</li>
-                  <li>• Stack navigation</li>
-                  <li>• Full-width components</li>
-                  <li>• Touch-optimized spacing</li>
-                  <li>• Bottom navigation</li>
+                  <li>Single column layout</li>
+                  <li>Stack navigation</li>
+                  <li>Full-width components</li>
+                  <li>Touch-optimized spacing</li>
+                  <li>Bottom navigation</li>
                 </ul>
               </div>
             </div>
@@ -54,11 +54,11 @@ export const ResponsiveSection: React.FC = () => {
               </div>
               <div className="bg-[var(--lumiere-grey)] p-4 rounded-lg text-left">
                 <ul className="text-sm space-y-1">
-                  <li>• Two column layout</li>
-                  <li>• Side navigation option</li>
-                  <li>• Adaptive components</li>
-                  <li>• Increased spacing</li>
-                  <li>• Modal dialogs</li>
+                  <li>Two column layout</li>
+                  <li>Side navigation option</li>
+                  <li>Adaptive components</li>
+                  <li>Increased spacing</li>
+                  <li>Modal dialogs</li>
                 </ul>
               </div>
             </div>
@@ -76,11 +76,11 @@ export const ResponsiveSection: React.FC = () => {
               </div>
               <div className="bg-[var(--lumiere-grey)] p-4 rounded-lg text-left">
                 <ul className="text-sm space-y-1">
-                  <li>• Multi-column layout</li>
-                  <li>• Persistent navigation</li>
-                  <li>• Hover interactions</li>
-                  <li>• Maximum content width</li>
-                  <li>• Keyboard shortcuts</li>
+                  <li>Multi-column layout</li>
+                  <li>Persistent navigation</li>
+                  <li>Hover interactions</li>
+                  <li>Maximum content width</li>
+                  <li>Keyboard shortcuts</li>
                 </ul>
               </div>
             </div>
@@ -149,19 +149,19 @@ export const ResponsiveSection: React.FC = () => {
               <div>
                 <strong>Mobile-First Approach:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• Design for smallest screen first</li>
-                  <li>• Progressive enhancement</li>
-                  <li>• Touch-first interactions</li>
-                  <li>• Performance optimization</li>
+                  <li>Design for smallest screen first</li>
+                  <li>Progressive enhancement</li>
+                  <li>Touch-first interactions</li>
+                  <li>Performance optimization</li>
                 </ul>
               </div>
               <div>
                 <strong>Flexible Layouts:</strong>
                 <ul className="mt-1 space-y-1">
-                  <li>• CSS Grid and Flexbox</li>
-                  <li>• Relative units (rem, %)</li>
-                  <li>• Container queries</li>
-                  <li>• Fluid typography</li>
+                  <li>CSS Grid and Flexbox</li>
+                  <li>Relative units (rem, %)</li>
+                  <li>Container queries</li>
+                  <li>Fluid typography</li>
                 </ul>
               </div>
             </div>
